@@ -1,0 +1,17 @@
+---
+name: check_format
+
+# yamllint disable-line rule:truthy
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  check_format:
+    name: Check code format
+    steps:
+      - uses: actions/checkout@v4
+      - uses: julia-actions/julia-format@v1
